@@ -16,6 +16,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check index.html exists
+        run: |
+            if [ ! -f index.html ]; then
+            echo "❌ index.html not found!"
+            exit 1
+            else
+            echo "✅ index.html exists"
+            fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
